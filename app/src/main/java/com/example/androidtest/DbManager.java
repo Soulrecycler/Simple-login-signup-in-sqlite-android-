@@ -69,7 +69,6 @@ public class DbManager extends SQLiteOpenHelper {
     public Bitmap getimage(String Userid){
         SQLiteDatabase db = this.getWritableDatabase();
         Bitmap bt = null;
-//        Cursor cursor = db.rawQuery("Select * from Users where email=" +Userid, null);
         Cursor cursor = db.rawQuery(" select * from "+ Table_name +" where email = ?", new String[]{Userid});
         if (cursor.moveToNext()){
             byte[] image= cursor.getBlob(4);

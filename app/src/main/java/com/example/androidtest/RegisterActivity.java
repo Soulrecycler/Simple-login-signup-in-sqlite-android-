@@ -117,6 +117,8 @@ public class RegisterActivity extends AppCompatActivity {
                 name.setText("");
                 email.setText("");
                 password.setText("");
+                Intent intent = new Intent(RegisterActivity.this,LoginActivity.class);
+                startActivity(intent);
             }
         }
 

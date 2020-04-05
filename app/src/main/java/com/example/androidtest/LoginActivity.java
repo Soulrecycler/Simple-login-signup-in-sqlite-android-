@@ -107,6 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                             Toast.makeText(LoginActivity.this,"Login Sucessful",Toast.LENGTH_SHORT).show();
                         }
 
+                    }else{
+                        Toast.makeText(LoginActivity.this,"Invalid username or password",Toast.LENGTH_SHORT).show();
                     }
             }
         });
