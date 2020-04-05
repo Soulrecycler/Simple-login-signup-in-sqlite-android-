@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">SjAndroidTest</string>
+    <string name="Username">Username</string>
+    <string name="Password">Password</string>
+    <string name="Login">Login</string>
+    <string name="not_registered">Not Registered?</string>
+    <string name="register">Register</string>
+    <string name="already_registered">Already Registered?</string>
+    <string name="title_activity_home2">Home2Activity</string>
+    <string name="title_home">Home</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_notifications">Notifications</string>
+    <string name="Email">Email</string>
+    <string name="User_lists">User Lists</string>
+    <string name="GitHub">Git Hub API</string>
+</resources>
