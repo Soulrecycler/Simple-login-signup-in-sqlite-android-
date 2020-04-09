@@ -1,12 +1,12 @@
 package com.example.androidtest;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.util.ArrayList;
 
@@ -38,7 +38,7 @@ public class ChnagePassword extends AppCompatActivity {
                 if(updatedpassword.equals(oldPassword)){
 
                     Toast.makeText(ChnagePassword.this,"Your new password" +
-                            " matches with your old one :", Toast.LENGTH_SHORT).show();
+                            " matches with your old one ", Toast.LENGTH_SHORT).show();
                 }else{
                     db.updatePassword(userid,updatedpassword);
                     Toast.makeText(ChnagePassword.this,"Password Updated:", Toast.LENGTH_SHORT).show();

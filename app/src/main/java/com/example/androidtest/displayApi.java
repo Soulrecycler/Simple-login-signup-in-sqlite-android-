@@ -41,8 +41,8 @@ public class displayApi extends AppCompatActivity {
                     content += "ID: "+ post.getId() + "\n";
                     content += "User ID: " + post.getUserid() + "\n";
                     content += "Title: " + post.getTitle() + "\n";
-                    content += "Text: " + post.getText() + "\n";
-                    content += "User ID: " + post.getUserid() + "\n\n";
+                    content += "Text: " + post.getText() + "\n\n";
+
 
                     textViewResult.append(content);
                 }

@@ -98,19 +98,15 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     public void  addUsers(View view ){
-
-
         DbManager db=new DbManager(this);
 
         if(tempImage == null){
             Toast.makeText(RegisterActivity.this,"" +
                     " Please Select an image",Toast.LENGTH_LONG).show();
-
         }else {
             if (db.checkDuplicateEmail(email.getText().toString())) {
-                Toast.makeText(RegisterActivity.this, " " +
+                Toast.makeText(RegisterActivity.this,
                         "The email already exists please enter a new one", Toast.LENGTH_LONG).show();
-
             } else {
                 String result = db.addUsers(name.getText().toString(), email.getText().toString(), password.getText().toString(), tempImage);
                 Toast.makeText(this, result, Toast.LENGTH_LONG).show();

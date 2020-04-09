@@ -1,4 +1,4 @@
-package com.example.androidtest.ui.notifications;
+package com.example.androidtest.ui.Api;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -15,7 +15,7 @@ import androidx.lifecycle.ViewModelProviders;
 import com.example.androidtest.R;
 import com.example.androidtest.displayApi;
 
-public class NotificationsFragment extends Fragment {
+public class ApiFragment extends Fragment {
     Button GithubViewUserButton;
     EditText InputGithubUser;
     private Intent i;
@@ -28,7 +28,7 @@ public class NotificationsFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_notifications, container, false);
 
         GithubViewUserButton=root.findViewById(R.id.gitHubButton);
-        InputGithubUser=root.findViewById(R.id.githubEditText);
+//        InputGithubUser=root.findViewById(R.id.githubEditText);
 
         GithubViewUserButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -40,12 +40,7 @@ public class NotificationsFragment extends Fragment {
         return root;
     }
 
-//    public void getUser(View view){
-//
-//        i = new Intent(getActivity(), UserActivity.class);
-//        i.putExtra("STRING_I_NEED", InputGithubUser.getText().toString());
-//        startActivity(i);
-//    }
+
 
 
 

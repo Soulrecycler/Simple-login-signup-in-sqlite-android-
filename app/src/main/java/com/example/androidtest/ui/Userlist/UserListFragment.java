@@ -1,4 +1,4 @@
-package com.example.androidtest.ui.dashboard;
+package com.example.androidtest.ui.Userlist;
 
 import android.Manifest;
 import android.app.AlertDialog;
@@ -22,6 +22,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.core.app.ActivityCompat;
@@ -42,7 +43,7 @@ import java.util.ArrayList;
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.NOTIFICATION_SERVICE;
 
-public class DashboardFragment extends Fragment {
+public class UserListFragment extends Fragment {
     Button logoutButton,updateButton,changePassword;
     ImageView imageView;
     SessionManager sessionManager;
@@ -55,6 +56,7 @@ public class DashboardFragment extends Fragment {
     final int REQUEST_CODE_GALLERY=999;
     private static int RESULT_LOAD_IMAGE = 1;
     View rootReplica;
+    Boolean changeImageFlag = false ;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -159,8 +161,26 @@ public class DashboardFragment extends Fragment {
                 String  updatedpassword=password.getText().toString();
                 byte[]  updatedImage=tempImage;
                 String  emailReplica = email.getText().toString();
+                String oldName=queryResult.get(0).toString();
                 //Toast.makeText(getActivity().getApplicationContext(),"username:"+updatedName,Toast.LENGTH_SHORT).show();
-                db.updateUser(updatedName,emailReplica,updatedImage);
+                if (oldName.equals(updatedName) ){
+                    Toast.makeText(getActivity(),"This Name already exists!",Toast.LENGTH_SHORT).show();
+                }else{
+                    if(changeImageFlag==true){
+                        db.updateUser(updatedName,emailReplica,updatedImage);
+                    }else{
+//**************************************************
+
+                        Bitmap mBitmap =  db.getimage(username);
+                        ByteArrayOutputStream stream = new ByteArrayOutputStream();
+                        mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
+                        byte[] imageInByte = stream.toByteArray();
+                        Toast.makeText(getActivity(),"the else part "+changeImageFlag ,Toast.LENGTH_SHORT).show();
+                        db.updateUser(updatedName,emailReplica, imageInByte);
+                    }
+
+                }
+
 
             }
         });
@@ -194,6 +214,7 @@ public class DashboardFragment extends Fragment {
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == RESULT_LOAD_IMAGE && resultCode == RESULT_OK && null != data) {
+
             Uri selectedImage = data.getData();
             String[] filePathColumn = { MediaStore.Images.Media.DATA };
 
@@ -212,6 +233,7 @@ public class DashboardFragment extends Fragment {
             ByteArrayOutputStream stream = new ByteArrayOutputStream();
             mBitmap.compress(Bitmap.CompressFormat.PNG, 100, stream);
             byte[] imageInByte = stream.toByteArray();
+            changeImageFlag = true;
             tempImage= imageInByte;
 
         }

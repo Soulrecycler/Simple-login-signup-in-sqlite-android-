@@ -26,21 +26,6 @@ public class Home2Activity extends AppCompatActivity {
         NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navView, navController);
 
-//      ListView listView = (ListView)findViewById(R.id.listView);
-//      db = new DbManager(this);
-//
-//        ArrayList<String> theList =  new ArrayList<>();
-//        Cursor data = db.getlistContents();
-//        if (data.getCount() == 0 )
-//        {
-//            Toast.makeText(Home2Activity.this,"The DB is empty",Toast.LENGTH_SHORT).show();
-//        }else{
-//            while(data.moveToNext()){
-//                theList.add(data.getString(1));
-//                ListAdapter listAdapter = new  ArrayAdapter<>(this,android.R.layout.simple_list_item_1);
-//                listView.setAdapter(listAdapter);
-//            }
-//        }
     }
 
 }
